@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description>Sentry ingestion proxy — forwards /open/sentry/* preserving path</Description>
+    <Description>Sentry ingestion-only proxy — only forwards event ingestion paths</Description>
     <PreFlow name="PreFlow">
         <Request>
             <Step><Name>SpikeArrest</Name></Step>
+            <Step>
+                <Name>RF-BlockNonIngestion</Name>
+                <Condition>NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/envelope/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/store/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/security/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/minidump/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/unreal/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/csp-report/?.*") AND NOT (request.verb == "OPTIONS")</Condition>
+            </Step>
         </Request>
         <Response>
             <Step><Name>AddCorsHeaders</Name></Step>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault name="RF-BlockNonIngestion">
+    <DisplayName>Block Non-Ingestion Paths</DisplayName>
+    <Description>Reject any request that is not an SDK event ingestion endpoint</Description>
+    <FaultResponse>
+        <Set>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Not Found</ReasonPhrase>
+            <Payload contentType="application/json">{"error":"not_found"}</Payload>
+            <Headers>
+                <Header name="X-Content-Type-Options">nosniff</Header>
+            </Headers>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
