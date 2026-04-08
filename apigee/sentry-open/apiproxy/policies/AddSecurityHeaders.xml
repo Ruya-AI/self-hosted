@@ -6,6 +6,7 @@
         <Headers>
             <Header name="X-Content-Type-Options">nosniff</Header>
             <Header name="Strict-Transport-Security">max-age=31536000; includeSubDomains</Header>
+            <Header name="X-Frame-Options">DENY</Header>
         </Headers>
     </Set>
     <Remove>
