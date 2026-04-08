@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest name="SpikeArrest">
+    <DisplayName>Rate Limit</DisplayName>
+    <Description>Rate limit Sentry event ingestion — 1000 requests per minute per IP</Description>
+    <Rate>1000pm</Rate>
+    <Identifier ref="request.header.X-Forwarded-For"/>
+    <UseEffectiveCount>true</UseEffectiveCount>
+    <MessageWeight>1</MessageWeight>
+</SpikeArrest>

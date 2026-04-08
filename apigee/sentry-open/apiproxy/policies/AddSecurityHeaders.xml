@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AddSecurityHeaders">
+    <DisplayName>Add Security Headers</DisplayName>
+    <AssignTo createNew="false" type="response"/>
+    <Set>
+        <Headers>
+            <Header name="X-Content-Type-Options">nosniff</Header>
+            <Header name="Strict-Transport-Security">max-age=31536000; includeSubDomains</Header>
+        </Headers>
+    </Set>
+    <Remove>
+        <Headers>
+            <Header name="X-Powered-By"/>
+            <Header name="Server"/>
+        </Headers>
+    </Remove>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>
