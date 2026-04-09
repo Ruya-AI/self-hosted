@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description>Sentry ingestion-only proxy — only forwards event ingestion paths</Description>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step><Name>SpikeArrest</Name></Step>
+            <Step>
+                <Name>RF-BlockNonIngestion</Name>
+                <Condition>NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/envelope/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/store/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/security/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/minidump/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/unreal/?.*") AND NOT (proxy.pathsuffix JavaRegex "/api/[0-9]+/csp-report/?.*") AND NOT (request.verb == "OPTIONS")</Condition>
+            </Step>
+        </Request>
+        <Response>
+            <Step><Name>AddCorsHeaders</Name></Step>
+        </Response>
+    </PreFlow>
+    <Flows>
+        <Flow name="CORS Preflight">
+            <Description>Handle OPTIONS preflight for browser SDKs</Description>
+            <Condition>request.verb == "OPTIONS"</Condition>
+            <Request/>
+            <Response>
+                <Step><Name>AddCorsHeaders</Name></Step>
+            </Response>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <FaultRules>
+        <FaultRule name="RateLimit">
+            <Condition>(fault.name Matches "SpikeArrestViolation")</Condition>
+            <Step><Name>AddSecurityHeaders</Name></Step>
+        </FaultRule>
+    </FaultRules>
+    <HTTPProxyConnection>
+        <BasePath>/open/sentry</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="NoRoute">
+        <Condition>request.verb == "OPTIONS"</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

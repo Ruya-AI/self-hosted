@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="sentry-open">
+    <DisplayName>Sentry Ingestion Proxy</DisplayName>
+    <Description>Open Sentry event ingestion — forwards /open/sentry/* to self-hosted Sentry</Description>
+    <BasePaths>/open/sentry</BasePaths>
+    <Policies>
+        <Policy>SpikeArrest</Policy>
+        <Policy>AddCorsHeaders</Policy>
+        <Policy>AddSecurityHeaders</Policy>
+        <Policy>RF-BlockNonIngestion</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
