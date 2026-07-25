@@ -1,5 +1,217 @@
 # Changelog
 
+## 26.7.1
+
+### Bug Fixes 🐛
+
+- Add accepted outcomes consumer by @mzglinski in [#4419](https://github.com/getsentry/self-hosted/pull/4419)
+
+### Internal Changes 🔧
+
+#### Deps
+
+- Bump astral-sh/setup-uv from 8.3.0 to 8.3.2 by @dependabot in [#4410](https://github.com/getsentry/self-hosted/pull/4410)
+- Bump nginx from 1.31.2-alpine to 1.31.3-alpine by @dependabot in [#4416](https://github.com/getsentry/self-hosted/pull/4416)
+
+## 26.7.0
+
+### New Features ✨
+
+#### Taskbroker
+
+- Port subscriptions consumers to tasks by @lvthanh03 in [#4395](https://github.com/getsentry/self-hosted/pull/4395)
+- Port profiles consumer to taskbroker raw mode by @untitaker in [#4386](https://github.com/getsentry/self-hosted/pull/4386)
+
+#### Other
+
+- (deps) Bump seaweedfs to 4.29 and migrate into `weed mini` by @aldy505 in [#4345](https://github.com/getsentry/self-hosted/pull/4345)
+- Add in transactions -> spans migration flags by @nikkikapadia in [#4402](https://github.com/getsentry/self-hosted/pull/4402)
+- Enable workflow engine by @aldy505 in [#4364](https://github.com/getsentry/self-hosted/pull/4364)
+
+### Bug Fixes 🐛
+
+- (relay) Disable DNS caching by @aldy505 in [#4213](https://github.com/getsentry/self-hosted/pull/4213)
+
+### Internal Changes 🔧
+
+#### Deps
+
+- Bump memcached from 1.6.26-alpine to 1.6.45-alpine by @dependabot in [#4412](https://github.com/getsentry/self-hosted/pull/4412)
+- Bump soupsieve from 2.8 to 2.8.4 by @dependabot in [#4406](https://github.com/getsentry/self-hosted/pull/4406)
+- Bump nginx from 1.31.0-alpine to 1.31.2-alpine by @dependabot in [#4411](https://github.com/getsentry/self-hosted/pull/4411)
+- Bump astral-sh/setup-uv from 8.2.0 to 8.3.0 by @dependabot in [#4399](https://github.com/getsentry/self-hosted/pull/4399)
+- Bump actions/setup-python from 6.2.0 to 6.3.0 by @dependabot in [#4390](https://github.com/getsentry/self-hosted/pull/4390)
+- Bump j178/prek-action from 2.0.4 to 2.0.5 by @dependabot in [#4400](https://github.com/getsentry/self-hosted/pull/4400)
+- Bump actions/checkout from 6.0.3 to 7.0.0 by @dependabot in [#4383](https://github.com/getsentry/self-hosted/pull/4383)
+- Bump @opentelemetry/core and @sentry/node in /_integration-test/nodejs by @dependabot in [#4380](https://github.com/getsentry/self-hosted/pull/4380)
+
+#### Other
+
+- (deps-dev) Bump cryptography from 46.0.7 to 48.0.1 by @dependabot in [#4382](https://github.com/getsentry/self-hosted/pull/4382)
+- Add memcached integration test by @aminvakil in [#4414](https://github.com/getsentry/self-hosted/pull/4414)
+
+### Other
+
+- Upgrade docker images using dependabot by @aminvakil in [#4407](https://github.com/getsentry/self-hosted/pull/4407)
+- Increase web healthcheck start_period by @aminvakil in [#4387](https://github.com/getsentry/self-hosted/pull/4387)
+- Bump pgbouncer 1.25.2-p0 by @aminvakil in [#4384](https://github.com/getsentry/self-hosted/pull/4384)
+
+## 26.6.0
+
+### New Features ✨
+
+- (ci) Run tests every 6 hours on the weekdays by @aldy505 in [#4374](https://github.com/getsentry/self-hosted/pull/4374)
+- (error-handling) Collect extra tags to distinguish OS and Docker Image version by @aldy505 in [#4366](https://github.com/getsentry/self-hosted/pull/4366)
+- Set --max-poll-interval-ms flags to Sentry/Snuba consumers by @aldy505 in [#4376](https://github.com/getsentry/self-hosted/pull/4376)
+
+### Documentation 📚
+
+- (auth) Add email backend recommendation to config example by @nora-shap in [#4362](https://github.com/getsentry/self-hosted/pull/4362)
+
+### Internal Changes 🔧
+
+#### Ci
+
+- Declare 'timeout-minutes' on tests by @aldy505 in [#4375](https://github.com/getsentry/self-hosted/pull/4375)
+- Disable Linux arm64 integration tests for the time being by @aldy505 in [#4367](https://github.com/getsentry/self-hosted/pull/4367)
+
+#### Deps
+
+- Bump actions/checkout from 6.0.2 to 6.0.3 by @dependabot in [#4372](https://github.com/getsentry/self-hosted/pull/4372)
+- Bump codecov/codecov-action from 5.5.3 to 7.0.0 by @dependabot in [#4370](https://github.com/getsentry/self-hosted/pull/4370)
+- Bump astral-sh/setup-uv from 8.1.0 to 8.2.0 by @dependabot in [#4371](https://github.com/getsentry/self-hosted/pull/4371)
+- Bump actions/create-github-app-token from 3.1.1 to 3.2.0 by @dependabot in [#4336](https://github.com/getsentry/self-hosted/pull/4336)
+
+#### Other
+
+- (taskbroker) Migrate to new kafka_clusters/kafka_topics config format by @untitaker in [#4363](https://github.com/getsentry/self-hosted/pull/4363)
+
+### Other
+
+- Increase proxy_read_timeout to 90s by @aminvakil in [#4368](https://github.com/getsentry/self-hosted/pull/4368)
+- Reuse integration test login sessions by @aminvakil in [#4369](https://github.com/getsentry/self-hosted/pull/4369)
+- Adjust ClickHouse configuration to disable query_views_log by @LordSimal in [#4365](https://github.com/getsentry/self-hosted/pull/4365)
+
+## 26.5.2
+
+### New Features ✨
+
+- (snuba) Healthcheck adjustments preparing for distroless by @oioki in [#4352](https://github.com/getsentry/self-hosted/pull/4352)
+
+### Bug Fixes 🐛
+
+- Prevent argument too long error on self-hosted error reports due to breadcrumbs too long by @aldy505 in [#4348](https://github.com/getsentry/self-hosted/pull/4348)
+
+### Documentation 📚
+
+- Contributing guideline by @aldy505 in [#4347](https://github.com/getsentry/self-hosted/pull/4347)
+
+### Internal Changes 🔧
+
+- (deps) Bump j178/prek-action from 2.0.2 to 2.0.4 by @dependabot in [#4337](https://github.com/getsentry/self-hosted/pull/4337)
+- (sentry-cli) Upgrade to 3.4.3 by @szokeasaurusrex in [#4354](https://github.com/getsentry/self-hosted/pull/4354)
+
+## 26.5.1
+
+### Bug Fixes 🐛
+
+- (config) Migrate PyMemcacheCache to ReconnectingMemcache by @sentry-junior in [#4338](https://github.com/getsentry/self-hosted/pull/4338)
+
+### Other
+
+- Clean up statsd monitoring configuration comments by @bobvandevijver in [#4334](https://github.com/getsentry/self-hosted/pull/4334)
+- Bump postgres 14.23-bookworm by @aminvakil in [#4330](https://github.com/getsentry/self-hosted/pull/4330)
+
+## 26.5.0
+
+### New Features ✨
+
+- Enable Metrics by @aldy505 in [#4312](https://github.com/getsentry/self-hosted/pull/4312)
+- Add launchpad taskworker container by @NicoHinderling in [#4267](https://github.com/getsentry/self-hosted/pull/4267)
+
+### Bug Fixes 🐛
+
+- (workflows) Prevent shell injection in fast-revert workflow by @fix-it-felix-sentry in [#4309](https://github.com/getsentry/self-hosted/pull/4309)
+
+### Internal Changes 🔧
+
+- (deps) Bump astral-sh/setup-uv from 8.0.0 to 8.1.0 by @dependabot in [#4290](https://github.com/getsentry/self-hosted/pull/4290)
+
+### Other
+
+- Bump nginx 1.31.0-alpine by @aminvakil in [#4329](https://github.com/getsentry/self-hosted/pull/4329)
+
+## 26.4.2
+
+### New Features ✨
+
+- Allow upgrade tests by @aldy505 in [#4288](https://github.com/getsentry/self-hosted/pull/4288)
+
+### Bug Fixes 🐛
+
+- Force disable HTTP(S) proxy for seaweedfs services by @DragoonAethis in [#4311](https://github.com/getsentry/self-hosted/pull/4311)
+
+### Internal Changes 🔧
+
+#### Deps
+
+- Bump j178/prek-action from 2.0.1 to 2.0.2 by @dependabot in [#4289](https://github.com/getsentry/self-hosted/pull/4289)
+- Bump actions/setup-node from 6.3.0 to 6.4.0 by @dependabot in [#4291](https://github.com/getsentry/self-hosted/pull/4291)
+- Bump actions/create-github-app-token from 3.0.0 to 3.1.1 by @dependabot in [#4280](https://github.com/getsentry/self-hosted/pull/4280)
+- Bump pygments from 2.19.2 to 2.20.0 by @dependabot in [#4256](https://github.com/getsentry/self-hosted/pull/4256)
+
+#### Deps Dev
+
+- Bump pytest from 9.0.1 to 9.0.3 by @dependabot in [#4284](https://github.com/getsentry/self-hosted/pull/4284)
+- Bump cryptography from 46.0.5 to 46.0.7 by @dependabot in [#4275](https://github.com/getsentry/self-hosted/pull/4275)
+
+#### Other
+
+- (relay) Remove healthcheck from docker compose by @Dav1dde in [#4304](https://github.com/getsentry/self-hosted/pull/4304)
+- (template) Remove task for updating relocation release tests by @kenzoengineer in [#4297](https://github.com/getsentry/self-hosted/pull/4297)
+
+## 26.4.1
+
+- No documented changes.
+
+## 26.4.0
+
+### New Features ✨
+
+- (ci) Cancel in-progress PR workflows on new commit push by @joshuarli in [#4283](https://github.com/getsentry/self-hosted/pull/4283)
+- Add max-child-task-count to taskworker container by @markstory in [#4279](https://github.com/getsentry/self-hosted/pull/4279)
+- Run SeaweedFS admin and worker instance by @aldy505 in [#4259](https://github.com/getsentry/self-hosted/pull/4259)
+- Support custom CA certificates for all containers by @aldy505 in [#4216](https://github.com/getsentry/self-hosted/pull/4216)
+- Remove 'vroom-cleanup' container by @aldy505 in [#4217](https://github.com/getsentry/self-hosted/pull/4217)
+
+### Bug Fixes 🐛
+
+- (install) Gracefully handle missing containers in minimize-downtime by @shameemkpofficial-git in [#4246](https://github.com/getsentry/self-hosted/pull/4246)
+- Disable a few more new clickhouse tables by @alkanna in [#4269](https://github.com/getsentry/self-hosted/pull/4269)
+- Explicit post release command for craft by @aldy505 in [#4273](https://github.com/getsentry/self-hosted/pull/4273)
+- Use default buildx builder to resolve local images during build by @maiqigh in [#4250](https://github.com/getsentry/self-hosted/pull/4250)
+
+### Internal Changes 🔧
+
+#### Deps
+
+- Bump brace-expansion from 5.0.3 to 5.0.5 in /_integration-test/nodejs by @dependabot in [#4247](https://github.com/getsentry/self-hosted/pull/4247)
+- Bump j178/prek-action from 2.0.0 to 2.0.1 by @dependabot in [#4264](https://github.com/getsentry/self-hosted/pull/4264)
+- Bump BYK/docker-volume-cache-action from be89365902126f508dcae387a32ec3712df6b1cd to 0efa5cf5178c9906cb46ed8d1a357df8fd6b1a06 by @dependabot in [#4253](https://github.com/getsentry/self-hosted/pull/4253)
+- Bump astral-sh/setup-uv from 7.6.0 to 8.0.0 by @dependabot in [#4254](https://github.com/getsentry/self-hosted/pull/4254)
+- Bump getsentry/craft from 2.23.2 to 2.24.1 by @dependabot in [#4221](https://github.com/getsentry/self-hosted/pull/4221)
+- Bump astral-sh/setup-uv from 7.2.1 to 7.5.0 by @dependabot in [#4220](https://github.com/getsentry/self-hosted/pull/4220)
+
+#### Other
+
+- (config) Remove graduated standalone span ingestion flag by @Dav1dde in [#4274](https://github.com/getsentry/self-hosted/pull/4274)
+- Restore unpinned actions by @aldy505 in [#4243](https://github.com/getsentry/self-hosted/pull/4243)
+- Swap pre-commit with prek by @aldy505 in [#4235](https://github.com/getsentry/self-hosted/pull/4235)
+
+### Other
+
+- Bump postgres 14.22-bookworm by @aminvakil in [#4249](https://github.com/getsentry/self-hosted/pull/4249)
+
 ## 26.3.1
 
 - No documented changes.
